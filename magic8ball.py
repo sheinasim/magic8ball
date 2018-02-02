@@ -2,18 +2,21 @@
 from random import *
 
 def magic8ball():
-    answer = raw_input("Is your question related to science? (Yes or No) ")
-    science_responses = ["Grep it", "C1V1 = C2V2", "ssh 10.1.1.1", "> 60,000 Kb"]
-    general_responses = ["What would Justin Trudeau do?", "Eat a taco.", "Look in your heart."]
-    if answer.lower() != "yes" and answer.lower() != "no":
-        print "You're a dummy who cannot follow instructions and don't deserve answers. "
-    if answer.lower() == "yes":
-        question = raw_input("What is your question? ")
-        response_index = randint(0, len(science_responses)-1)
-        print science_responses[response_index]
-    if answer.lower() == "no":
-        question = raw_input("What is your question? ")
-        response_index = randint(0, len(general_responses)-1)
-        print general_responses[response_index]
-
+    question = raw_input("What is your question? ")
+    responses = ["Grep it", "C1V1 = C2V2", "ssh 10.1.1.1", "What would Justin Trudeau do?", "Eat a taco.", "Look in your heart."]
+    how_responses = ["Grep it", "ssh 10.1.1.1", "What would Justin Trudeau do?", "Look in your heart.", "One leg at a time."]
+    who_responses = ["Justin Trudeau", "Your momma", "Who do you think?", "A loser", "A winner"]
+    whatis_responses = ["Tacos"]
+    if question.lower().startswith('how'):
+        response_index = randint(0, len(how_responses)-1)
+        print how_responses[response_index]
+    elif question.lower().startswith('who'):
+        response_index = randint(0, len(who_responses)-1)
+        print who_responses[response_index]
+    elif question.lower().startswith('what is'):
+        response_index = randint(0, len(whatis_responses)-1)
+        print whatis_responses[response_index]
+    else:
+        response_index = randint(0, len(responses)-1)
+        print responses[response_index]
 magic8ball()
